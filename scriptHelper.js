@@ -29,12 +29,13 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  }
  
  function validateInput(testInput) {
-    if (testInput.trim() === "") {
+    if (testInput === "") {
         return "Empty";
-    } else if (isNaN(testInput)) {
-        return "Not a Number";
-    } else {
+    }
+    if (!isNaN(Number(testInput))) {
         return "Is a Number";
+    } else {
+        return "Not a Number";
     }
  }
  
@@ -50,7 +51,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
     copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
 
-    if (fuelLevel < 10000){
+    if (fuelLevel < 10000) {
         items.style.visibility = "visible";
         fuelStatus.innerHTML = "Fuel level too low for launch";
         status.innerHTML = "Shuttle Not Ready for Launch";
