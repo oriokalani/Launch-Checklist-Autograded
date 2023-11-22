@@ -15,31 +15,36 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                  </ol>
                  <img src="">
     */
-   const div = document.getElementById("missionTarget");
-   div.innerHTML = `<h2>Mission Destination</h2>
+    const div = document.getElementById("missionTarget");
+    div.innerHTML = `<h2>Mission Destination</h2>
     <ol>
-        <li>Name: ${name}</li>
-        <li>Diameter: ${diameter}</li>
+        <li>Name: ${name} </li>
+        <li>Diameter: ${diameter} </li>
         <li>Star: ${star}</li>
-        <li>Distance from Earth: ${distance}</li>
-        <li>Number of Moons: ${moons}</li>
+        <li>Distance from Earth: ${distance} </li>
+        <li>Number of Moons: ${moons} </li>
     </ol>
     <img src="${imageUrl}">
-        `;
- }
+    
+    
+    `;
+
+}
  
- function validateInput(testInput) {
+function validateInput(testInput) {
     if (testInput === "") {
         return "Empty";
-    }
-    if (!isNaN(Number(testInput))) {
+    } 
+    // if (string === "") {
+    //     return "Empty"
+    //} 
+    if(!isNaN(Number(testInput))) {
         return "Is a Number";
-    } else {
-        return "Not a Number";
+    }else {return "Not a Number";
     }
- }
+}
  
- function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     // validation for each field
     const items = document.getElementById("faultyItems");
     const status = document.getElementById("launchStatus");
@@ -47,36 +52,34 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     const copilotStatus = document.getElementById("copilotStatus");
     const fuelStatus = document.getElementById("fuelStatus");
     const cargoStatus = document.getElementById("cargoStatus");
-
+   
     pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
     copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-
-    if (fuelLevel < 10000) {
+   
+    if (fuelLevel < 10000){
         items.style.visibility = "visible";
         fuelStatus.innerHTML = "Fuel level too low for launch";
         status.innerHTML = "Shuttle Not Ready for Launch";
         status.style.color = "red";
 
-    } else {
-        fuelStatus.innerHTML = 'Fuel level high enough for launch'
-    };
+    }else {fuelStatus.innerHTML = "Fuel level high enough for launch"};
 
     if (cargoLevel > 10000) {
         items.style.visibility = "visible";
         cargoStatus.innerHTML = "Cargo mass too heavy for launch";
         status.innerHTML = "Shuttle Not Ready for Launch";
         status.style.color = "red";
-    } else {
-        fuelStatus.innerHTML = 'Cargo mass low enough for launch '
-    };
+
+    }else {cargoStatus.innerHTML = "Cargo mass low enough for launch"};
 
     if (cargoLevel <= 10000 && fuelLevel >= 10000) {
-        status.style.color = 'green';
-        status.innerHTML = 'Shuttle is Ready for Launch';
+        status.style.color = "green";
+        status.innerHTML = "Shuttle is Ready for Launch";
+
     };
- }
+}
  
- async function myFetch() {
+async function myFetch() {
      let planetsReturned;
  
      planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
@@ -88,15 +91,15 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         });
  
      return planetsReturned;
- }
+}
  
- function pickPlanet(planets) {
+function pickPlanet(planets) {
     let index = Math.floor(Math.random() * planets.length);
     return planets[index];
- }
+}
  
- module.exports.addDestinationInfo = addDestinationInfo;
- module.exports.validateInput = validateInput;
- module.exports.formSubmission = formSubmission;
- module.exports.pickPlanet = pickPlanet; 
- module.exports.myFetch = myFetch;
+module.exports.addDestinationInfo = addDestinationInfo;
+module.exports.validateInput = validateInput;
+module.exports.formSubmission = formSubmission;
+module.exports.pickPlanet = pickPlanet; 
+module.exports.myFetch = myFetch;
