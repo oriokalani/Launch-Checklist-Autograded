@@ -40,7 +40,7 @@ function validateInput(testInput) {
     //} 
     if(!isNaN(Number(testInput))) {
         return "Is a Number";
-    }else {return "Not a Number";
+    } else {return "Not a Number";
     }
 }
  
@@ -62,7 +62,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         status.innerHTML = "Shuttle Not Ready for Launch";
         status.style.color = "red";
 
-    }else {fuelStatus.innerHTML = "Fuel level high enough for launch"};
+    } else {fuelStatus.innerHTML = "Fuel level high enough for launch"};
 
     if (cargoLevel > 10000) {
         items.style.visibility = "visible";
@@ -70,7 +70,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         status.innerHTML = "Shuttle Not Ready for Launch";
         status.style.color = "red";
 
-    }else {cargoStatus.innerHTML = "Cargo mass low enough for launch"};
+    } else {cargoStatus.innerHTML = "Cargo mass low enough for launch"};
 
     if (cargoLevel <= 10000 && fuelLevel >= 10000) {
         status.style.color = "green";
