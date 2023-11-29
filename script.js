@@ -2,9 +2,7 @@
 
 const { addDestinationInfo } = require("./scriptHelper");
 
-//const { validateInput } = require("./scriptHelper");
-
-//const { validateInput } = require("./scriptHelper");
+const { validateInput } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
 

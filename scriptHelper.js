@@ -97,7 +97,7 @@ function pickPlanet(planets) {
     let index = Math.floor(Math.random() * planets.length);
     return planets[index];
 }
- 
+
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
 module.exports.formSubmission = formSubmission;
